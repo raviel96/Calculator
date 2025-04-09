@@ -1,0 +1,102 @@
+@import  url('reset.css');
+
+
+:root  {
+    --primary-color: #11121a;
+    --secondary-color: #272832;
+    --accent-color: #0071ff;
+    --text-color: #c9c9c9;
+
+    --spacing-1: 1rem;
+    --spacing-2: 2rem;
+
+    --border-radius: 0.5rem;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Arial Rounded MT', 'Verdana', 'Roboto', sans-serif;
+}
+
+main{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--spacing-2);
+}
+
+.header {
+    text-align: center;
+    padding: var(--spacing-2) var(--spacing-1);
+    margin-bottom: calc(var(--spacing-2) + var(--spacing-2));
+}
+
+.calculator {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+
+    .calculator-display {
+        padding: var(--spacing-1);
+
+        input {
+            display: block;
+            background-color: var(--primary-color);
+            border-radius: 0.3rem;
+            border : none;
+            padding: calc(var(--spacing-1) / 2);
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: end;
+
+            &:first-child {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+
+    .calculator-keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: var(--spacing-1);
+        gap: var(--spacing-1);
+        grid-template-areas: 
+            "empty clear delete divide"
+            "seven eight nine multiply"
+            "four five six subtract"
+            "one two three add"
+            "sign  zero dot equal"
+        ;
+
+        button {
+            background-color: var(--primary-color);
+            height: 50px;
+            border: none;
+            border-radius: 0.3rem;
+            font-size: large;
+            font-weight: 700;
+
+            &:last-child {
+                background-color: var(--accent-color);
+            }
+
+            &:hover {
+                /* transform: scale(1.1); */
+                border: 3px solid var(--accent-color);
+            }
+            
+            &:active{
+                background-color: var(--accent-color);
+            }
+
+            &:focus {
+                outline: 0;
+                border: 3px solid var(--accent-color);
+            }
+        }
+
+    }
+}
+
+
